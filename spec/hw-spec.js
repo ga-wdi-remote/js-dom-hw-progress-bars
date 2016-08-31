@@ -7,7 +7,7 @@
 const assert = require('assert');
 const jsdom = require('mocha-jsdom');
 
-// Load HW Code (Not a Module, So No `require`) //
+// Load HW Code (Not a Module, so no `require`) //
 const vm = require("vm");
 const fs = require("fs");
 vm.runInThisContext(fs.readFileSync(`${process.cwd()}/hw.js`));
