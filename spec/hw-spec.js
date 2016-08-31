@@ -10,7 +10,7 @@ const jsdom = require('mocha-jsdom');
 // Load HW Code (Not a Module, So No `require`) //
 const vm = require("vm");
 const fs = require("fs");
-vm.runInThisContext(fs.readFileSync(`${process.cwd()}/example-solution/hw-solution.js`));
+vm.runInThisContext(fs.readFileSync(`${process.cwd()}/hw.js`));
 
 // Tests
 jsdom();
