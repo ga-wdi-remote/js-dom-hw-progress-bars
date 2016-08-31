@@ -96,14 +96,8 @@ inside the `spec` directory.
 #### Lots of Components
 
   Edit the HTML so that there are multiple progress bars, fuses, and crawlers.
-  Then, update your methods so that all of them are animated.
-
-#### The Rotating Timer
-
-  Create a wheel which starts off entirely one color, but (as time ticks
-  down) slowly changes color as an invisible 'hand' rotates through the clock.
-  Define a new method on `timerUI` called `drawRotatingTimers(timerValue)` to
-  handle this behavior.
+  Then, update your methods so that all of them are animated in sync with each
+  other.
 
 #### The Final Countdown
 
