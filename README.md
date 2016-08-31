@@ -102,8 +102,10 @@ inside the `spec` directory.
 #### The Final Countdown
 
   Once the countdown clock reaches the last ten seconds, the numbers on the
-  numerical display should turn red and begin to get larger and larger (5px at
+  numerical display should turn red and begin to get larger and larger (5% at
   a time) as the timer gets closer to zero.
+
+  > Hint: Look up the default font size for H2
 
 ## Submitting Your Work
 
