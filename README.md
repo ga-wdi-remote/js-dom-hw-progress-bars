@@ -52,8 +52,8 @@ clock as an argument.
 
   The progress bar is a rectangle (with class `progress-bar`) inside the
   element with id `progress-bars`. As the timer counts down from 100
-  to 0, the progress bar should expand from a small sliver on the left side
-  (with 0 width) to spanning the entire width of the `progress-bars` component.
+  to 0, the progress bar should expand its width from `0%` to `100%` of the
+  width of its parent element, the `progress-bars` component.
   The function responsible for implementing this is
   `drawProgressBars(timerValue)`.
 
@@ -63,18 +63,18 @@ clock as an argument.
   `.burnt` and `.unburnt` divs will need to change over time as the counter runs
   down. Specifically. `.unburnt` will need to go from 98% of the width of the
   component (since the `.flame` div also takes up some space) to 0% of the width
-  while `.burnt` does the reverse. The function responsible for implementing
-  this is `drawLitFuses(timerValue)`.
+  as the timer runs down, while `.burnt` does the reverse. The function
+  responsible for implementing this is `drawLitFuses(timerValue)`.
 
 #### 4. The Crawler
 
-  If you thought the last one was cutesy, hoo boy. The Crawler will make its
-  way across the screen as the timer moves. It should reach the end of the box
-  that contains it by the time that the countdown timer reaches 0. Think about
-  what that means based on the Crawler's dimensions. Additionally, as the
-  Crawler makes its way across the screen, it should move back and forth (i.e.
-  up and down) by 10 px with each step. The function responsible for
-  implementing this behavior is `drawCrawlers(timerValue)`.
+  If you thought the last one was cutesy, hoo boy. The crawler will make its
+  way from left to right across the screen, at a rate of 10 pixels per second.
+  Additionally, as the crawler makes its way across the screen, it should move
+  back and forth (i.e. up and down) by 10 px with each step. The function
+  responsible for implementing this behavior is `drawCrawlers(timerValue)`.
+
+> Under what conditions will the crawler make it all the way across the screen?
 
 ### Testing Your Work
 
