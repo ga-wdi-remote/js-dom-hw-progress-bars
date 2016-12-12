@@ -14,7 +14,7 @@ vm.runInThisContext(fs.readFileSync(`${process.cwd()}/hw.js`));
 
 // Tests
 jsdom();
-describe("Homework Requirements",function(){
+describe("HW",function(){
   before(function(){
     document.body.innerHTML = "\
       <h2 id='numeric-display'>100</h2>\
@@ -43,75 +43,95 @@ describe("Homework Requirements",function(){
       it("sets the numeric display to the current value of the timer", function(){
         let timerValue = 45;
         timerUI.drawNumericDisplay(timerValue);
-        assert.equal(document.getElementById('numeric-display').textContent, timerValue);
+        assert.equal(Number(document.getElementById('numeric-display').textContent), timerValue);
       });
     });
     describe("#drawProgressBars(timerValue)", function(){
-      it("sets the width of the progress bar to 'N%', where N is the amount of time elapsed in seconds", function(){
+      it("sets the width of each progress bar to 'N%', where N is the amount of time elapsed in seconds", function(){
         let timerValue = 66;
         let timeElapsed = 100 - timerValue;
-        let progressBar = document.getElementsByClassName('progress-bar')[0];
+        let progressBars = Array.from(document.getElementsByClassName('progress-bar'));
         timerUI.drawProgressBars(timerValue);
-        assert.equal(progressBar.style.width, timeElapsed.toString() + '%');
+        progressBars.forEach(function(bar){
+          assert.equal(bar.style.width, timeElapsed.toString() + '%');
+        });
       });
     });
     describe("#drawLitFuses(timerValue)", function(){
-      let unburntBar, burntBar;
+      let unburntBars, burntBars;
       beforeEach(function(){
-        unburntBar = document.getElementsByClassName('unburnt')[0];
-        burntBar=  document.getElementsByClassName('burnt')[0];
+        unburntBars = Array.from(document.getElementsByClassName('unburnt'));
+        burntBars = Array.from(document.getElementsByClassName('burnt'));
       });
       context("when the time left on the timer is 100", function(){
         let timerValue = 100;
-        it("sets the width of the 'unburnt' bar to 98%", function(){
+        it("sets the width of each 'unburnt' bar to 98%", function(){
           timerUI.drawLitFuses(timerValue);
-          assert.equal(unburntBar.style.width, '98%');
+          unburntBars.forEach(function(bar){
+            assert.equal(bar.style.width, '98%');
+          });
         });
-        it("sets the width of the 'burnt' bar to 0%", function(){
+        it("sets the width of each 'burnt' bar to 0%", function(){
           timerUI.drawLitFuses(timerValue);
-          assert.equal(burntBar.style.width, '0%');
+          burntBars.forEach(function(bar){
+            assert.equal(bar.style.width, '0%');
+          });
         });
       });
       context("when the time left on the timer is 0", function(){
         let timerValue = 0;
-        it("sets the width of the 'unburnt' bar to 0%", function(){
+        it("sets the width of each 'unburnt' bar to 0%", function(){
           timerUI.drawLitFuses(timerValue);
-          assert.equal(unburntBar.style.width, '0%');
+          unburntBars.forEach(function(bar){
+            assert.equal(bar.style.width, '0%');
+          });
         });
-        it("sets the width of the 'burnt' bar to 98%", function(){
+        it("sets the width of each 'burnt' bar to 98%", function(){
           timerUI.drawLitFuses(timerValue);
-          assert.equal(burntBar.style.width, '98%');
+          burntBars.forEach(function(bar){
+            assert.equal(bar.style.width, '98%');
+          });
         });
       });
       context("when the time left on the timer is between 100 and 0", function(){
-        it("scales the widths of both bars linearly, based on the amount of time elapsed/remaining", function(){
+        it("scales the widths of both types of bars linearly, based on the amount of time elapsed/remaining", function(){
           let timerValue = 50;
           timerUI.drawLitFuses(timerValue);
-          assert.equal(unburntBar.style.width, '49%');
-          assert.equal(burntBar.style.width, '49%');
+          burntBars.forEach(function(bar){
+            assert.equal(bar.style.width, '49%');
+          });
+          unburntBars.forEach(function(bar){
+            assert.equal(bar.style.width, '49%');
+          });
         });
       });
     });
     describe("#drawCrawlers(timerValue)", function(){
-      let crawlerTrack, crawler;
+      let crawlerTracks, crawlers;
       beforeEach(function(){
-        crawlerTrack = document.getElementsByClassName('crawler-track')[0];
-        crawler = document.getElementsByClassName('crawler')[0];
+        crawlerTracks = Array.from(document.getElementsByClassName('crawler-track'));
+        crawlers = Array.from(document.getElementsByClassName('crawler'));
       });
-      it('draws a "crawler" whose left margin scales with the amount of time elapsed, at a rate of 10px per second', function(){
+      it('draws "crawlers" whose left margins scale with the amount of time elapsed, at a rate of 10px per second', function(){
         [100, 90, 80, 70 ,60, 50, 40, 30, 20, 10, 0].forEach(function(timerValue){
           timerUI.drawCrawlers(timerValue);
-          assert.equal(crawler.style.marginLeft, ((100 - timerValue) * 10) + 'px');
+          crawlers.forEach(function(crawler){
+            assert.equal(crawler.style.marginLeft, ((100 - timerValue) * 10) + 'px');
+          })
         });
       });
-      it('sets the top margin of the "crawler" to either 0px or 10px every other second, starting with 0px when the timer is at 100 seconds left', function() {
+      it('sets the top margin of each "crawler" to either 0px or 10px every other second, starting with 0px when the timer is at 100 seconds left', function() {
         [100, 98, 82, 76, 64, 50, 44, 38, 28, 16, 6].forEach(function(timerValue){
           timerUI.drawCrawlers(timerValue);
-          assert.equal(crawler.style.marginTop, '0px');
+          crawlers.forEach(function(crawler){
+            assert.equal(crawler.style.marginTop, '0px');
+          });
         });
         [95, 83, 77, 61, 53, 49, 31, 21, 19, 3].forEach(function(timerValue){
           timerUI.drawCrawlers(timerValue);
-          assert.equal(crawler.style.marginTop, '10px');
+          crawlers.forEach(function(crawler){
+            assert.equal(crawler.style.marginTop, '10px');
+          });
         });
       });
     });
