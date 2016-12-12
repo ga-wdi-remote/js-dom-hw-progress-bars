@@ -1,6 +1,6 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# Homework : The Final Countdown
+# Homework : Progress Bars
 
 <!-- MATERIALS METADATA -->
 <!--
@@ -89,15 +89,14 @@ carefully -- it may give you a clue about what to do next.
 > NOTE: Do not attempt until **all** requirements are met and all standard
 > tests are passing.
 
-Tests have been provided for these reach targets. To run them alongside the
-standard tests, run `mocha spec` in the console -- this will run all tests
-inside the `spec` directory.
-
 #### Lots of Components
 
   Edit the HTML so that there are multiple progress bars, fuses, and crawlers.
   Then, update your methods so that all of them are animated in sync with each
   other.
+
+  Tests for this feature are already accounted for in the test suite, so there's
+  no need to change the tests.
 
 #### The Final Countdown
 
@@ -107,13 +106,24 @@ inside the `spec` directory.
 
   > Hint: Look up the default font size for H2
 
-## Submitting Your Work
+  Tests for this feature do exist, but they are currently disabled. To enable
+  them, go into [hw-spec.js](./spec/hw-spec.js) and remove the `x` in front of
+  the `context` keyword on line 48.
 
-When you're ready, push the code to your fork on GitHub and create an issue with
-a title in the format "YourGitHubUsername -- Week XX Day XX".
-The issue body should have:
+  ## Submitting Your Work
 
--   A link that points back to your fork.
+  When you're ready to submit your work,
 
--   A 'comfort' score on how you feel about the material, from 1 (very
-    uncomfortable) to 5 (very comfortable)
+  1.  Run the command `npm test` and take a screenshot of the output in your
+      terminal.
+  2.  Push your code to your fork of the class repo.
+  3.  File an issue on the class repo titled "Your Name -- wXXdXX".
+
+  The issue should include:
+
+  -   A link that points back to your fork.
+
+  -   The screenshot you took.
+
+  -   A 'comfort' score on how you feel about the material, from 1 (very
+      uncomfortable) to 5 (very comfortable)
