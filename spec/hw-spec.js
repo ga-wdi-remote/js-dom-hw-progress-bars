@@ -4,7 +4,7 @@
 "use strict";
 
 // 'require' external code //
-const assert = require('assert');
+const expect = require('chai').expect;
 const jsdom = require('mocha-jsdom');
 
 // Load HW Code (Not a Module, so no `require`) //
@@ -43,7 +43,7 @@ describe("HW",function(){
       it("sets the numeric display to the current value of the timer", function(){
         let timerValue = 45;
         timerUI.drawNumericDisplay(timerValue);
-        assert.equal(Number(document.getElementById('numeric-display').textContent), timerValue);
+        expect(Number(document.getElementById('numeric-display').textContent)).to.equal(timerValue);
       });
     });
     describe("#drawProgressBars(timerValue)", function(){
@@ -53,7 +53,7 @@ describe("HW",function(){
         let progressBars = Array.from(document.getElementsByClassName('progress-bar'));
         timerUI.drawProgressBars(timerValue);
         progressBars.forEach(function(bar){
-          assert.equal(bar.style.width, timeElapsed.toString() + '%');
+          expect(bar.style.width).to.equal(timeElapsed.toString() + '%');
         });
       });
     });
@@ -68,13 +68,13 @@ describe("HW",function(){
         it("sets the width of each 'unburnt' bar to 98%", function(){
           timerUI.drawLitFuses(timerValue);
           unburntBars.forEach(function(bar){
-            assert.equal(bar.style.width, '98%');
+            expect(bar.style.width).to.equal('98%');
           });
         });
         it("sets the width of each 'burnt' bar to 0%", function(){
           timerUI.drawLitFuses(timerValue);
           burntBars.forEach(function(bar){
-            assert.equal(bar.style.width, '0%');
+            expect(bar.style.width).to.equal('0%');
           });
         });
       });
@@ -83,13 +83,13 @@ describe("HW",function(){
         it("sets the width of each 'unburnt' bar to 0%", function(){
           timerUI.drawLitFuses(timerValue);
           unburntBars.forEach(function(bar){
-            assert.equal(bar.style.width, '0%');
+            expect(bar.style.width).to.equal('0%');
           });
         });
         it("sets the width of each 'burnt' bar to 98%", function(){
           timerUI.drawLitFuses(timerValue);
           burntBars.forEach(function(bar){
-            assert.equal(bar.style.width, '98%');
+            expect(bar.style.width).to.equal('98%');
           });
         });
       });
@@ -98,10 +98,10 @@ describe("HW",function(){
           let timerValue = 50;
           timerUI.drawLitFuses(timerValue);
           burntBars.forEach(function(bar){
-            assert.equal(bar.style.width, '49%');
+            expect(bar.style.width).to.equal('49%');
           });
           unburntBars.forEach(function(bar){
-            assert.equal(bar.style.width, '49%');
+            expect(bar.style.width).to.equal('49%');
           });
         });
       });
@@ -116,7 +116,7 @@ describe("HW",function(){
         [100, 90, 80, 70 ,60, 50, 40, 30, 20, 10, 0].forEach(function(timerValue){
           timerUI.drawCrawlers(timerValue);
           crawlers.forEach(function(crawler){
-            assert.equal(crawler.style.marginLeft, ((100 - timerValue) * 10) + 'px');
+            expect(crawler.style.marginLeft).to.equal(`${(100 - timerValue) * 10}px`);
           })
         });
       });
@@ -124,13 +124,13 @@ describe("HW",function(){
         [100, 98, 82, 76, 64, 50, 44, 38, 28, 16, 6].forEach(function(timerValue){
           timerUI.drawCrawlers(timerValue);
           crawlers.forEach(function(crawler){
-            assert.equal(crawler.style.marginTop, '0px');
+            expect(crawler.style.marginTop).to.equal('0px');
           });
         });
         [95, 83, 77, 61, 53, 49, 31, 21, 19, 3].forEach(function(timerValue){
           timerUI.drawCrawlers(timerValue);
           crawlers.forEach(function(crawler){
-            assert.equal(crawler.style.marginTop, '10px');
+            expect(crawler.style.marginTop).to.equal('10px');
           });
         });
       });
