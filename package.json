@@ -1,15 +1,15 @@
 {
-  "name": "js-dom-manipulation-hw",
+  "name": "js-dom-hw-progress-bars",
   "version": "1.0.0",
-  "description": "Homework assignment -- update the DOM programatically.",
-  "main": "index.js",
+  "description": "Update the DOM in sync with a timer.",
+  "main": "hw.js",
   "scripts": {
     "test": "mocha spec/hw-spec.js && mocha spec/hw-spec.js -R json-stream > spec/.summary-report"
   },
   "keywords": [
     "javascript",
     "functions",
-    "JS DOM manipulation"
+    "dom"
   ],
   "author": "Matt Brendzel (matt.brendzel@generalassemb.ly)",
   "license": "GPL-3.0",
