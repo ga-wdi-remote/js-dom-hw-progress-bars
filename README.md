@@ -4,7 +4,7 @@
 
 <!-- MATERIALS METADATA -->
 <!--
-  title: 'The Final Countdown'
+  title: Progress Bars, a.k.a 'The Final Countdown'
   type: homework
   creators: Matt Brendzel
   competencies: javascript, functions, html, css, dom manipulation
@@ -12,7 +12,7 @@
 
 ## Setup
 
-Make sure that you are on the `master` branch of your `wdi-remote-r2d2` repo.
+Make sure that you are on the `master` branch of your `wdi-remote-...` repo.
 Then run `git pull upstream master` to pull the latest materials from the
 instructors' repository. You shouldn't hit a merge conflict here, but if you do,
 flag down an instructor right away.
@@ -110,7 +110,7 @@ carefully -- it may give you a clue about what to do next.
   them, go into [hw-spec.js](./spec/hw-spec.js) and remove the `x` in front of
   the `context` keyword on line 48.
 
-  ## Submitting Your Work
+## Submitting Your Work
 
   When you're ready to submit your work,
 
