@@ -45,6 +45,21 @@ describe("HW",function(){
         timerUI.drawNumericDisplay(timerValue);
         expect(Number(document.getElementById('numeric-display').textContent)).to.equal(timerValue);
       });
+      xcontext("when the timer is down to the last ten seconds", function(){
+        it("changes the color of the text in the numeric display to 'red'", function(){
+          let timerValue = 7;
+          timerUI.drawNumericDisplay(timerValue);
+          expect(document.getElementById('numeric-display').style.color).to.equal('red');
+        });
+        it("increases the size of the font in the display by 5% per second (at 10 seconds left, the size should be 5% bigger); round to two decimal places", function(){
+          let timerValue = 10;
+          timerUI.drawNumericDisplay(timerValue);
+          expect(document.getElementById('numeric-display').style.fontSize).to.equal('1.58em');
+          timerValue = 9;
+          timerUI.drawNumericDisplay(timerValue);
+          expect(document.getElementById('numeric-display').style.fontSize).to.equal('1.65em');
+        })
+      })
     });
     describe("#drawProgressBars(timerValue)", function(){
       it("sets the width of each progress bar to 'N%', where N is the amount of time elapsed in seconds", function(){
