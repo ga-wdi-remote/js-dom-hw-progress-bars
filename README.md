@@ -5,9 +5,9 @@
 <!-- MATERIALS METADATA -->
 <!--
   title: Progress Bars, a.k.a 'The Final Countdown'
-  type: homework
-  creators: Matt Brendzel
-  competencies: javascript, functions, html, css, dom manipulation
+  format: homework
+  original author: Matt Brendzel
+  tags: javascript, functions, html, css, dom manipulation
 -->
 
 ## Setup
